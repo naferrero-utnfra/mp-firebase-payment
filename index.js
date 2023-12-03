@@ -15,7 +15,7 @@ app.get("/ping", (req, res) => {
   res.json({ msg: "pong" });
 });
 
-app.get("/crear-orden/:userId", async (req, res) => {
+app.post("/crear-orden/:userId", async (req, res) => {
   const { precioTotal } = req.body;
   const { userId } = req.params;
 

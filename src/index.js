@@ -15,7 +15,7 @@ app.get("/ping", (req, res) => {
   res.json({ msg: "pong" });
 });
 
-app.get("/crear-orden/:userId", async (req, res) => {
+app.post("/crear-orden/:userId", async (req, res) => {
   const { precioTotal } = req.body;
   const { userId } = req.params;
 
@@ -31,12 +31,11 @@ app.get("/crear-orden/:userId", async (req, res) => {
         },
       ],
       back_urls: {
-        success: "http://localhost:4000/success",
-        failure: "http://localhost:4000/failure",
-        pending: "http://localhost:4000/pending",
+        success: "https://mp-firebase-payment.onrender.com/success",
+        failure: "https://mp-firebase-payment.onrender.com/failure",
+        pending: "https://mp-firebase-payment.onrender.com/pending",
       },
-      notification_url:
-        "https://776d-2800-2121-6200-1550-7cdd-3cbd-e834-95b8.ngrok.io/webhook",
+      notification_url: "https://mp-firebase-payment.onrender.com/webhook",
       metadata: {
         firebaseId: userId,
       },
